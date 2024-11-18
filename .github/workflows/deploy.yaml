@@ -41,6 +41,7 @@ jobs:
           DATABASE_PORT: ${{ secrets.DATABASE_PORT }}
           PORT: ${{ secrets.PORT }}
           RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+          REDIS_URL: ${{ secrets.REDIS_URL }}
 
       - name: Wait for server to be ready
         run: sleep 10
