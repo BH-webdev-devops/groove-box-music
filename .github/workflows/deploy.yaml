@@ -24,13 +24,16 @@ jobs:
           npm install
 
       - name: Start the server (if applicable)
-        run: npm start &
+        run: |
+          cd backend
+          npm start &
         env:
-          DB_HOST: ${{ secrets.DATABASE_HOST }}
+          DATAB_HOST: ${{ secrets.DATABASE_HOST }}
           DB_PORT: ${{ secrets.DATABASE_PORT }}
           DB_DATABASE: ${{ secrets.DATABASE_DATABASE }}
           DB_USER: ${{ secrets.DATABASE_USER }}
           DB_PASSWORD: ${{ secrets.DATABASE_PASSWORD }}
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
 
       - name: Wait for server to be ready
         run: sleep 10
