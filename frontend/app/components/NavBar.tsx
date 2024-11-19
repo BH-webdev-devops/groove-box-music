@@ -4,8 +4,6 @@ import { useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useAuth } from '../context/AuthContext';
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 
 const navigation = [
   { name: 'Search', href: '/' },
@@ -15,7 +13,6 @@ const navigation = [
 export default function NavBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { isAuthenticated, loading, logout } : any = useAuth();
-  const router = useRouter(); 
 
 
   return (
