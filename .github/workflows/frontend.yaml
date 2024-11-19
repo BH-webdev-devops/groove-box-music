@@ -32,6 +32,7 @@ jobs:
         env:
           VERCEL_TOKEN: ${{ secrets.TOKEN_VERCEL }}
         run: |
+          cd frontend
           npx vercel deploy --prod --token $VERCEL_TOKEN --confirm
 
 
