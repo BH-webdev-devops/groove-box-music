@@ -2,7 +2,7 @@
 
 import { useAuth } from '../context/AuthContext';
 import { useRouter } from 'next/navigation';
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Toast from '../components/Toast'
 
 type Song = {
@@ -22,14 +22,13 @@ type Playlist = {
 }
 
 export default function Music() {
-    const { user, isAuthenticated, loading, logout } : any = useAuth();
+    const { isAuthenticated, loading } : any = useAuth();
     const router = useRouter();
     const [songs, setSongs] = useState<Song[] | null>(null);
     const [message, setMessage] = useState('');
     const [showToast, setShowToast] = useState(false);
     const [playlists, setPlaylists] = useState<Playlist[] | null>(null);
     const [selectedPlaylist, setSelectedPlaylist] = useState(false);
-
     useEffect(() => {
       if (!loading && !isAuthenticated) {
         router.push('/login');
@@ -54,10 +53,11 @@ export default function Music() {
                 setSongs(data.songs)
                 setSelectedPlaylist(true)
             } else {
+                console.log(message)
                 setMessage('No songs saved!')
             }
             } catch (err) {
-                setMessage('Error fetching profile songs')
+                setMessage('Error fetching profile songs' + err)
             } finally {
                 console.log('here2')
             }
@@ -84,9 +84,9 @@ export default function Music() {
             }
           }
         } catch (err) {
-              setMessage('Error fetching profile songs')
+              setMessage('Error fetching profile songs' + err)
         } finally {
-              // console.log('here2')
+              console.log('here2')
         }
       } 
 
@@ -103,7 +103,7 @@ export default function Music() {
                 });
 
                 if (res.ok) {
-                    const data = await res.json();
+                    //const data = await res.json();
                     const updatedSongs : any = songs?.filter((song) => song.genius_id !== songId);
                     setSongs(updatedSongs);
                     setShowToast(true);
@@ -113,7 +113,7 @@ export default function Music() {
                     console.log('err')
                 }
             } catch (err) {
-                    setMessage('Error fetching profile songs')
+                    setMessage('Error fetching profile songs' + err)
             } finally {
                 console.log('here2')
             }

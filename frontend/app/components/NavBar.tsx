@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useAuth } from '../context/AuthContext';
+import Link from 'next/link';
 
 const navigation = [
   { name: 'Search', href: '/' },
@@ -19,14 +20,14 @@ export default function NavBar() {
     <header className="bg-white">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between gap-x-6 p-6 lg:px-8">
         <div className="flex lg:flex-1">
-          <a href="/" className="-m-1.5 p-1.5">
+          <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Bauhaus</span>
             <img
               alt=""
               src="/images.png"
               className="h-8 w-auto"
             />
-          </a>
+          </Link>
         </div>
         {isAuthenticated && (
           <div className="hidden lg:flex lg:gap-x-12">
