@@ -89,7 +89,7 @@ jobs:
         uses: google-github-actions/deploy-cloudrun@main
         with:
           service: node-deploy
-          image: gcr.io/${{ secrets.GCP_PROJECT_ID }}/node-deploy
+          image: gcr.io/${{ secrets.GCP_PROJECT_ID }}/node-deploy:latest
           region: europe-west1
           platform: managed
           allow-unauthenticated: true
