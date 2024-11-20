@@ -11,9 +11,13 @@ export const pool = new Pool({
     port: Number(process.env.DATABASE_PORT),
 });
 
+//console.log(process.env.DATABASE_HOST);
+
 // Generic query function to interact with PostgreSQL
 export const query = async (text: string, params?: any[]) => {
+    //console.log(0);
     const client = await pool.connect();
+    //console.log(1);
     try {
         const result = await client.query(text, params);
         return result;
