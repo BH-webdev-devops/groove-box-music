@@ -58,7 +58,7 @@ jobs:
 
       - name: Allow unauthenticated access
         run: |
-          gcloud run services add-iam-policy-binding frontend-glen \
+          gcloud run services add-iam-policy-binding groove-box-george-frontend \
             --member="allUsers" \
             --role="roles/run.invoker" \
             --region=europe-west1 \
