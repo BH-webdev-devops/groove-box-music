@@ -43,7 +43,7 @@ jobs:
       - name: Build and Push Docker Image
         working-directory: ./backend
         run: |
-          docker build --build-arg DATABASE_HOST:=${{ secrets.DATABASE_HOST }} \
+          docker build --build-arg DATABASE_HOST=${{ secrets.DATABASE_HOST }} \
             --build-arg DATABASE_PORT=${{ secrets.DATABASE_PORT }} \
             --build-arg DATABASE_NAME=${{ secrets.DATABASE_NAME }} \
             --build-arg DATABASE_USER=${{ secrets.DATABASE_USER }} \
