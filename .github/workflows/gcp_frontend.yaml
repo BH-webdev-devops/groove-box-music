@@ -45,13 +45,11 @@ jobs:
           registry: 'gcr.io'
 
       - name: Build and Push Docker Image
+        # working-directory: ./frontend
         run: |
           docker build \
-            --platform linux/amd64 \
-            --no-cache \
-            -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/groove-box-george-frontend:latest \
-            frontend \
-            --push
+            -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/groove-box-george-frontend:latest ./frontend
+          docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/groove-box-george-frontend:latest
 
 
       - name: Deploy to Cloud Run
