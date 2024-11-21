@@ -7,7 +7,7 @@ import authRouter from './routes/authRouter'
 import userRouter from './routes/userRouter'
 import musicRouter from './routes/musicRouter'
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8080;
 const app = express();
 
 app.use(cors())
