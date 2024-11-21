@@ -1,5 +1,5 @@
 # Stage 1: Install dependencies and build the app
-FROM node:18 AS builder
+FROM node:19 AS builder
 WORKDIR /app
 
 # Copy package files and install dependencies
@@ -11,7 +11,7 @@ COPY . .
 RUN npm run build
 
 # Stage 2: Create a production image
-FROM node:18 AS runner
+FROM node:19 AS runner
 WORKDIR /app
 
 # Install only production dependencies
