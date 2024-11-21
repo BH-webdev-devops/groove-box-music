@@ -57,7 +57,7 @@ COPY . .
 RUN npm run build
 
 # Expose the port (if needed)
-EXPOSE 3005
+EXPOSE 8080
 
 # Start the application
 CMD ["node", "dist/server.js"]
