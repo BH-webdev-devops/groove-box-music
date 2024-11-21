@@ -43,7 +43,8 @@ jobs:
       - name: Build and Push Docker Image
         working-directory: ./backend
         run: |
-          docker build --build-arg DATABASE_HOST=${{ secrets.DATABASE_HOST }} \
+          docker build \
+            --build-arg DATABASE_HOST=${{ secrets.DATABASE_HOST }} \
             --build-arg DATABASE_PORT=${{ secrets.DATABASE_PORT }} \
             --build-arg DATABASE_NAME=${{ secrets.DATABASE_NAME }} \
             --build-arg DATABASE_USER=${{ secrets.DATABASE_USER }} \
@@ -69,3 +70,11 @@ jobs:
           platform: managed
           allow-authenticated: true
           timeout: 300s
+
+      - name: Allow unauthenticated access
+        run: |
+          gcloud run services add-iam-policy-binding groove-box-george \
+            --member="allUsers" \
+            --role="roles/run.invoker" \
+            --region=europe-west1 \
+            --platform=managed
