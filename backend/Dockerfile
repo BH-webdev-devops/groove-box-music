@@ -39,10 +39,7 @@ COPY . .
 RUN npm run build
 
 # Expose the port (if needed)
-EXPOSE 8080
-
-# Use environment variable for the port
-ENV PORT=8080
+EXPOSE ${PORT}
 
 # Start the application
 CMD ["node", "dist/server.js"]
