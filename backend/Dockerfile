@@ -18,9 +18,10 @@ ENV DATABASE_USER=${DATABASE_USER}
 ENV DATABASE_PASSWORD=${DATABASE_PASSWORD}
 ENV DB_TYPE=${DB_TYPE}
 ENV PORT=${PORT}
+ENV JWT_SECRET=${JWT_SECRET}
 
 # Set the working directory
-WORKDIR /app
+WORKDIR /
 
 # Copy package files
 COPY package*.json ./
@@ -44,4 +45,4 @@ EXPOSE 8080
 ENV PORT=8080
 
 # Start the application
-CMD ['npm', 'start']
+CMD ["node", "dist/server.js"]
