@@ -1,5 +1,5 @@
 # Use a Node.js base image
-FROM node:18
+FROM node:16
 
 # Define ARGs
 ARG DATABASE_HOST
