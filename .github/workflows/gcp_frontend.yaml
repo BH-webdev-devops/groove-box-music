@@ -45,6 +45,7 @@ jobs:
           registry: 'gcr.io'
 
       - name: Build and Push Docker Image
+        working-directory: ./frontend
         run: |
           docker build \
             -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/groove-box-george-frontend:latest .
