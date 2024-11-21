@@ -44,7 +44,7 @@ export default function Music() {
         const token = localStorage.getItem('token');
         if (token) {
             try {
-            const res = await fetch(`https://groove-box-music.onrender.com/api/songs/${selectedPlaylist}`, {
+            const res = await fetch(`https://node-glen-413936355529.europe-west1.run.app/api/songs/${selectedPlaylist}`, {
                 method: 'GET',
                 headers: { 'Authorization': `Bearer ${token}` },
             });
@@ -71,7 +71,7 @@ export default function Music() {
     
           if (token) {
       
-            const res = await fetch(`https://groove-box-music.onrender.com/api/playlists`, {
+            const res = await fetch(`https://node-glen-413936355529.europe-west1.run.app/api/playlists`, {
               method: 'GET',
               headers: { 'Authorization': `Bearer ${token}` },
             });
@@ -97,7 +97,7 @@ export default function Music() {
         if (token) {
 
             try {
-                const res = await fetch(`https://groove-box-music.onrender.com/api/songs/${songId}`, {
+                const res = await fetch(`https://node-glen-413936355529.europe-west1.run.app/api/songs/${songId}`, {
                     method: 'DELETE',
                     headers: {'Authorization': `Bearer ${token}`},
                 });
