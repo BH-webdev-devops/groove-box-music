@@ -61,3 +61,4 @@ jobs:
           region: ${{ secrets.GCP_REGION }}
           platform: managed
           allow-authenticated: true
+          timeout: 300s
